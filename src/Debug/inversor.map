@@ -1,17 +1,17 @@
 ******************************************************************************
                   TI ARM Linker PC v18.1.2                     
 ******************************************************************************
->> Linked Tue Jul 31 21:55:58 2018
+>> Linked Wed Aug  1 22:23:42 2018
 
 OUTPUT FILE NAME:   <inversor.out>
-ENTRY POINT SYMBOL: "_c_int00_noinit_noargs"  address: 00000839
+ENTRY POINT SYMBOL: "_c_int00_noinit_noargs"  address: 00000869
 
 
 MEMORY CONFIGURATION
 
          name            origin    length      used     unused   attr    fill
 ----------------------  --------  ---------  --------  --------  ----  --------
-  FLASH                 00000000   00040000  00000a70  0003f590  R  X
+  FLASH                 00000000   00040000  00000ac6  0003f53a  R  X
   SRAM                  20000000   00008000  00000800  00007800  RW X
 
 
@@ -19,10 +19,10 @@ SEGMENT ALLOCATION MAP
 
 run origin  load origin   length   init length attrs members
 ----------  ----------- ---------- ----------- ----- -------
-00000000    00000000    00000a70   00000a70    r-x
+00000000    00000000    00000ac8   00000ac8    r-x
   00000000    00000000    0000026c   0000026c    r-- .intvecs
-  0000026c    0000026c    00000774   00000774    r-x .text
-  000009e0    000009e0    00000090   00000090    r-- .const
+  0000026c    0000026c    000007ca   000007ca    r-x .text
+  00000a38    00000a38    00000090   00000090    r-- .const
 20000000    20000000    00000800   00000000    rw-
   20000000    20000000    00000800   00000000    rw- .stack
 
@@ -35,39 +35,42 @@ section   page    origin      length       input sections
 .intvecs   0    00000000    0000026c     
                   00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
 
-.text      0    0000026c    00000774     
-                  0000026c    000001e4     main.obj (.text)
-                  00000450    00000132     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
-                  00000582    00000002     --HOLE-- [fill = 0]
-                  00000584    000000f4                   : sysctl.obj (.text:SysCtlClockSet)
-                  00000678    0000007a                   : adc.obj (.text:ADCSequenceStepConfigure)
-                  000006f2    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.asm.obj (.text)
-                  0000076c    00000050     driverlib.lib : adc.obj (.text:ADCSequenceConfigure)
-                  000007bc    00000048                   : gpio.obj (.text:GPIOPinConfigure)
-                  00000804    00000034                   : sysctl.obj (.text:SysCtlPeripheralEnable)
-                  00000838    00000030     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noinit_noargs:_c_int00_noinit_noargs)
-                  00000868    0000002e     driverlib.lib : adc.obj (.text:ADCIntStatus)
-                  00000896    0000002a                   : gpio.obj (.text:GPIODirModeSet)
-                  000008c0    00000022                   : pwm.obj (.text:PWMGenConfigure)
-                  000008e2    0000001e                   : adc.obj (.text:ADCSequenceDataGet)
-                  00000900    0000001e                   : pwm.obj (.text:PWMPulseWidthSet)
-                  0000091e    00000018                   : adc.obj (.text:ADCProcessorTrigger)
-                  00000936    00000018                   : gpio.obj (.text:GPIOPinTypeGPIOOutput)
-                  0000094e    00000012                   : gpio.obj (.text:GPIOPinTypeADC)
-                  00000960    00000012                   : gpio.obj (.text:GPIOPinTypePWM)
-                  00000972    00000012                   : pwm.obj (.text:PWMOutputState)
-                  00000984    00000010                   : pwm.obj (.text:PWMGenPeriodSet)
-                  00000994    0000000e                   : adc.obj (.text:ADCHardwareOversampleConfigure)
-                  000009a2    0000000e                   : adc.obj (.text:ADCSequenceEnable)
-                  000009b0    0000000c                   : pwm.obj (.text:PWMGenEnable)
-                  000009bc    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
-                  000009c8    0000000a     driverlib.lib : adc.obj (.text:ADCIntClear)
-                  000009d2    00000006                   : sysctl.obj (.text:SysCtlDelay)
-                  000009d8    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
-                  000009dc    00000004                                   : exit.c.obj (.text:abort:abort)
+.text      0    0000026c    000007ca     
+                  0000026c    00000214     main.obj (.text)
+                  00000480    00000132     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  000005b2    00000002     --HOLE-- [fill = 0]
+                  000005b4    000000f4                   : sysctl.obj (.text:SysCtlClockSet)
+                  000006a8    0000007a                   : adc.obj (.text:ADCSequenceStepConfigure)
+                  00000722    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.asm.obj (.text)
+                  0000079c    00000050     driverlib.lib : adc.obj (.text:ADCSequenceConfigure)
+                  000007ec    00000048                   : gpio.obj (.text:GPIOPinConfigure)
+                  00000834    00000034                   : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  00000868    00000030     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noinit_noargs:_c_int00_noinit_noargs)
+                  00000898    0000002e     driverlib.lib : adc.obj (.text:ADCIntStatus)
+                  000008c6    0000002a                   : gpio.obj (.text:GPIODirModeSet)
+                  000008f0    00000022                   : pwm.obj (.text:PWMGenConfigure)
+                  00000912    0000001e                   : adc.obj (.text:ADCSequenceDataGet)
+                  00000930    0000001e                   : pwm.obj (.text:PWMPulseWidthSet)
+                  0000094e    00000018                   : adc.obj (.text:ADCProcessorTrigger)
+                  00000966    00000018                   : gpio.obj (.text:GPIOPinTypeGPIOOutput)
+                  0000097e    00000012                   : gpio.obj (.text:GPIOPinTypeADC)
+                  00000990    00000012                   : gpio.obj (.text:GPIOPinTypePWM)
+                  000009a2    00000012                   : pwm.obj (.text:PWMOutputState)
+                  000009b4    00000010                   : fpu.obj (.text:FPUEnable)
+                  000009c4    00000010                   : fpu.obj (.text:FPULazyStackingEnable)
+                  000009d4    00000010                   : pwm.obj (.text:PWMGenPeriodSet)
+                  000009e4    0000000e                   : adc.obj (.text:ADCHardwareOversampleConfigure)
+                  000009f2    0000000e                   : adc.obj (.text:ADCSequenceEnable)
+                  00000a00    0000000c                   : pwm.obj (.text:PWMGenEnable)
+                  00000a0c    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00000a18    0000000a     driverlib.lib : adc.obj (.text:ADCIntClear)
+                  00000a22    00000006                   : gpio.obj (.text:GPIOPinWrite)
+                  00000a28    00000006                   : sysctl.obj (.text:SysCtlDelay)
+                  00000a2e    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00000a32    00000004                                   : exit.c.obj (.text:abort:abort)
 
-.const     0    000009e0    00000090     
-                  000009e0    00000090     driverlib.lib : gpio.obj (.const:g_pui32GPIOBaseAddrs)
+.const     0    00000a38    00000090     
+                  00000a38    00000090     driverlib.lib : gpio.obj (.const:g_pui32GPIOBaseAddrs)
 
 .cinit     0    00000000    00000000     UNINITIALIZED
 
@@ -84,17 +87,18 @@ MODULE SUMMARY
        ------                         ----   -------   -------
     .\
        tm4c123gh6pm_startup_ccs.obj   12     620       0      
-       main.obj                       484    0         0      
+       main.obj                       532    0         0      
     +--+------------------------------+------+---------+---------+
-       Total:                         496    620       0      
+       Total:                         544    620       0      
                                                               
     C:/ti/TivaWare_C_Series-2.1.4.178/driverlib/ccs/Debug/driverlib.lib
-       gpio.obj                       480    144       0      
+       gpio.obj                       486    144       0      
        adc.obj                        340    0         0      
        sysctl.obj                     302    0         0      
        pwm.obj                        110    0         0      
+       fpu.obj                        32     0         0      
     +--+------------------------------+------+---------+---------+
-       Total:                         1232   144       0      
+       Total:                         1270   144       0      
                                                               
     C:\ti\ccsv8\tools\compiler\ti-cgt-arm_18.1.2.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
        memset_t2.asm.obj              122    0         0      
@@ -106,37 +110,40 @@ MODULE SUMMARY
                                                               
        Stack:                         0      0         2048   
     +--+------------------------------+------+---------+---------+
-       Grand Total:                   1906   764       2048   
+       Grand Total:                   1992   764       2048   
 
 
 GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
 
 address   name                          
 -------   ----                          
-00000995  ADCHardwareOversampleConfigure
-000009c9  ADCIntClear                   
-00000869  ADCIntStatus                  
-0000091f  ADCProcessorTrigger           
-0000076d  ADCSequenceConfigure          
-000008e3  ADCSequenceDataGet            
-000009a3  ADCSequenceEnable             
-00000679  ADCSequenceStepConfigure      
-000009dd  C$$EXIT                       
-00000897  GPIODirModeSet                
-00000451  GPIOPadConfigSet              
-000007bd  GPIOPinConfigure              
-0000094f  GPIOPinTypeADC                
-00000937  GPIOPinTypeGPIOOutput         
-00000961  GPIOPinTypePWM                
-000008c1  PWMGenConfigure               
-000009b1  PWMGenEnable                  
-00000985  PWMGenPeriodSet               
-00000973  PWMOutputState                
-00000901  PWMPulseWidthSet              
-000009bd  ResetISR                      
-00000585  SysCtlClockSet                
-000009d3  SysCtlDelay                   
-00000805  SysCtlPeripheralEnable        
+000009e5  ADCHardwareOversampleConfigure
+00000a19  ADCIntClear                   
+00000899  ADCIntStatus                  
+0000094f  ADCProcessorTrigger           
+0000079d  ADCSequenceConfigure          
+00000913  ADCSequenceDataGet            
+000009f3  ADCSequenceEnable             
+000006a9  ADCSequenceStepConfigure      
+00000a33  C$$EXIT                       
+000009b5  FPUEnable                     
+000009c5  FPULazyStackingEnable         
+000008c7  GPIODirModeSet                
+00000481  GPIOPadConfigSet              
+000007ed  GPIOPinConfigure              
+0000097f  GPIOPinTypeADC                
+00000967  GPIOPinTypeGPIOOutput         
+00000991  GPIOPinTypePWM                
+00000a23  GPIOPinWrite                  
+000008f1  PWMGenConfigure               
+00000a01  PWMGenEnable                  
+000009d5  PWMGenPeriodSet               
+000009a3  PWMOutputState                
+00000931  PWMPulseWidthSet              
+00000a0d  ResetISR                      
+000005b5  SysCtlClockSet                
+00000a29  SysCtlDelay                   
+00000835  SysCtlPeripheralEnable        
 20000800  __STACK_END                   
 00000800  __STACK_SIZE                  
 20000200  __STACK_TOP                   
@@ -144,23 +151,23 @@ ffffffff  __TI_pprof_out_hndl
 ffffffff  __TI_prof_data_size           
 ffffffff  __TI_prof_data_start          
 00000000  __TI_static_base__            
-000006f3  __aeabi_memclr                
-000006f3  __aeabi_memclr4               
-000006f3  __aeabi_memclr8               
-000006f5  __aeabi_memset                
-000006f5  __aeabi_memset4               
-000006f5  __aeabi_memset8               
+00000723  __aeabi_memclr                
+00000723  __aeabi_memclr4               
+00000723  __aeabi_memclr8               
+00000725  __aeabi_memset                
+00000725  __aeabi_memset4               
+00000725  __aeabi_memset8               
 ffffffff  __binit__                     
 ffffffff  __c_args__                    
 UNDEFED   __mpu_init                    
 20000000  __stack                       
-00000839  _c_int00_noinit_noargs        
-000009d9  _system_pre_init              
-000009dd  abort                         
+00000869  _c_int00_noinit_noargs        
+00000a2f  _system_pre_init              
+00000a33  abort                         
 ffffffff  binit                         
 00000000  g_pfnVectors                  
 0000026d  main                          
-000006fb  memset                        
+0000072b  memset                        
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -170,41 +177,44 @@ address   name
 00000000  __TI_static_base__            
 00000000  g_pfnVectors                  
 0000026d  main                          
-00000451  GPIOPadConfigSet              
-00000585  SysCtlClockSet                
-00000679  ADCSequenceStepConfigure      
-000006f3  __aeabi_memclr                
-000006f3  __aeabi_memclr4               
-000006f3  __aeabi_memclr8               
-000006f5  __aeabi_memset                
-000006f5  __aeabi_memset4               
-000006f5  __aeabi_memset8               
-000006fb  memset                        
-0000076d  ADCSequenceConfigure          
-000007bd  GPIOPinConfigure              
+00000481  GPIOPadConfigSet              
+000005b5  SysCtlClockSet                
+000006a9  ADCSequenceStepConfigure      
+00000723  __aeabi_memclr                
+00000723  __aeabi_memclr4               
+00000723  __aeabi_memclr8               
+00000725  __aeabi_memset                
+00000725  __aeabi_memset4               
+00000725  __aeabi_memset8               
+0000072b  memset                        
+0000079d  ADCSequenceConfigure          
+000007ed  GPIOPinConfigure              
 00000800  __STACK_SIZE                  
-00000805  SysCtlPeripheralEnable        
-00000839  _c_int00_noinit_noargs        
-00000869  ADCIntStatus                  
-00000897  GPIODirModeSet                
-000008c1  PWMGenConfigure               
-000008e3  ADCSequenceDataGet            
-00000901  PWMPulseWidthSet              
-0000091f  ADCProcessorTrigger           
-00000937  GPIOPinTypeGPIOOutput         
-0000094f  GPIOPinTypeADC                
-00000961  GPIOPinTypePWM                
-00000973  PWMOutputState                
-00000985  PWMGenPeriodSet               
-00000995  ADCHardwareOversampleConfigure
-000009a3  ADCSequenceEnable             
-000009b1  PWMGenEnable                  
-000009bd  ResetISR                      
-000009c9  ADCIntClear                   
-000009d3  SysCtlDelay                   
-000009d9  _system_pre_init              
-000009dd  C$$EXIT                       
-000009dd  abort                         
+00000835  SysCtlPeripheralEnable        
+00000869  _c_int00_noinit_noargs        
+00000899  ADCIntStatus                  
+000008c7  GPIODirModeSet                
+000008f1  PWMGenConfigure               
+00000913  ADCSequenceDataGet            
+00000931  PWMPulseWidthSet              
+0000094f  ADCProcessorTrigger           
+00000967  GPIOPinTypeGPIOOutput         
+0000097f  GPIOPinTypeADC                
+00000991  GPIOPinTypePWM                
+000009a3  PWMOutputState                
+000009b5  FPUEnable                     
+000009c5  FPULazyStackingEnable         
+000009d5  PWMGenPeriodSet               
+000009e5  ADCHardwareOversampleConfigure
+000009f3  ADCSequenceEnable             
+00000a01  PWMGenEnable                  
+00000a0d  ResetISR                      
+00000a19  ADCIntClear                   
+00000a23  GPIOPinWrite                  
+00000a29  SysCtlDelay                   
+00000a2f  _system_pre_init              
+00000a33  C$$EXIT                       
+00000a33  abort                         
 20000000  __stack                       
 20000200  __STACK_TOP                   
 20000800  __STACK_END                   
@@ -216,4 +226,4 @@ ffffffff  __c_args__
 ffffffff  binit                         
 UNDEFED   __mpu_init                    
 
-[48 symbols]
+[51 symbols]
