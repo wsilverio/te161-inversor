@@ -58,7 +58,7 @@ void main(void)
     GPIOPinConfigure(GPIO_PF3_M1PWM7);
 
     // PWM CONFIG
-    PWMGenConfigure(PWM1_BASE, PWM_GEN_3, PWM_GEN_MODE_UP_DOWN);
+    PWMGenConfigure(PWM1_BASE, PWM_GEN_3, PWM_GEN_MODE_UP_DOWN | PWM_GEN_MODE_NO_SYNC);
     PWMGenPeriodSet(PWM1_BASE, PWM_GEN_3, 1000);
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_6, 500);
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_7, 500);
@@ -113,6 +113,16 @@ void main(void)
         // Complementa os sinais
         ui32PWM1Val = (500 + i32AdcToPwm);
         ui32PWM2Val = (500 - i32AdcToPwm);
+
+        if (ui32PWM1Val >= 1000)
+        {
+            ui32PWM1Val = 999;
+        }
+
+        if (ui32PWM2Val >= 1000)
+        {
+            ui32PWM2Val = 999;
+        }
 
         // Atribui a largura de pulso
         PWMPulseWidthSet(PWM1_BASE, PWM_OUT_6, ui32PWM1Val);
